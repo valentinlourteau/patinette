@@ -1,0 +1,3 @@
+<jboss-web>
+<context-root>patinette-ws</context-root>
+</jboss-web>
