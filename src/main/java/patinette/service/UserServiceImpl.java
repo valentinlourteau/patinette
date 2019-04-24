@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
 		userDao.merge(user);
 	}
 
+	@Override
+	public User findUserByLogin(String login) {
+		return userDao.findBy(login);
+	}
+
 }

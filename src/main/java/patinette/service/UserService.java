@@ -12,5 +12,7 @@ public interface UserService {
 	public boolean createUser(String login, String password);
 	
 	public void updateUser(User user);
+
+	public User findUserByLogin(String login);
 	
 }

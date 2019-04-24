@@ -24,8 +24,8 @@ public class AuthenticationEndpoint {
     public Response authenticateUser(User user) {
     	try {
             // Authenticate the user using the credentials provided
-            authenticate(user.getLogin(), user.getPassword());
-            return Response.ok().build();
+            user = authenticate(user.getLogin(), user.getPassword());
+            return Response.ok(user).build();
 
         } catch (Exception e) {
             return Response.status(Response.Status.FORBIDDEN).build();
@@ -44,10 +44,11 @@ public class AuthenticationEndpoint {
 			return Response.status(Status.CONFLICT).entity("L'utilisateur existe déjà").build();
 	}
     
-    private void authenticate(String login, String password) throws Exception {
+    private User authenticate(String login, String password) throws Exception {
     	if (!userService.authenticateUser(login, password)) {
     		throw new Exception("Echec lors de l'authentification");
     	}
+    	return userService.findUserByLogin(login);
     }
     
 }

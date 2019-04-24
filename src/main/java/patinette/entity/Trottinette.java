@@ -12,28 +12,25 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
-
-/**
- * Un utilisateur de l'application
- * @author valentin
- *
- */
 @Entity
-@Table(name = "USER")
+@Table(name = "TROTTINETTE")
 @Getter @Setter
-public class User implements Serializable {
+public class Trottinette implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "USER_ID", nullable = false, unique = true)
+	@Column(name = "TROTTINETTE_ID", nullable = false, unique = true)
 	private Long id;
 	
-	@Column(name = "LOGIN")
-	private String login;
+	@Column(name = "LAT")
+	private Long lat;
 	
-	@Column(name = "PASSWORD")
-	private String password;
+	@Column(name = "LNG")
+	private Long lng;
+	
+	@Column(name = "B_AVAILABLE")
+	private boolean bAvailable;
 	
 }
