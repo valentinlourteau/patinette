@@ -38,5 +38,14 @@ public class TrottinetteEndpoint {
     	location = trottinetteService.startLocation(location);
 		return Response.status(Status.CREATED).entity(location).build();
     }
+    
+    @Path("/endLocation")
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response endLocation(Location location) {
+    	location = trottinetteService.endLocation(location);
+		return Response.status(Status.ACCEPTED).entity(location).build();
+    }
 
 }

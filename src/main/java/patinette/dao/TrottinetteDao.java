@@ -7,7 +7,7 @@ import javax.ejb.Local;
 import patinette.entity.Trottinette;
 
 @Local
-public interface TrottinetteDao {
+public interface TrottinetteDao extends GenericJpaDao<Trottinette> {
 
 	List<Trottinette> findAllAvailableTrottinettes();
 

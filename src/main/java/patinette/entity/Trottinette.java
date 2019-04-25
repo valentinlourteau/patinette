@@ -25,10 +25,10 @@ public class Trottinette implements Serializable {
 	private Long id;
 	
 	@Column(name = "LAT")
-	private Long lat;
+	private Double lat;
 	
 	@Column(name = "LNG")
-	private Long lng;
+	private Double lng;
 	
 	@Column(name = "B_AVAILABLE")
 	private boolean bAvailable;

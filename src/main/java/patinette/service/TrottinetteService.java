@@ -14,4 +14,11 @@ public interface TrottinetteService {
 
 	Location startLocation(Location location);
 
+	/**
+	 * 
+	 * @param location
+	 * @return le prix total
+	 */
+	Location endLocation(Location location);
+
 }

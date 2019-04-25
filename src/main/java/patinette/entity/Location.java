@@ -1,7 +1,8 @@
 package patinette.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.Instant;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,12 +38,18 @@ public class Location implements Serializable {
 	private Trottinette trottinette;
 	
 	@Column(name = "DATE_RESERVATION")
-	private Date dateReservation;
+	private LocalDateTime dateReservation;
 	
 	@Column(name = "DATE_RENDU")
-	private Date dateRendu;
+	private LocalDateTime dateRendu;
 	
 	@Column(name = "B_RUNNING")
 	private boolean bRunning;
+	
+	@Column(name = "PRICE")
+	private Double price;
+	
+	@Column(name = "B_PAID")
+	private boolean bPaid;
 
 }
