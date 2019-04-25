@@ -14,6 +14,7 @@ import javax.ws.rs.core.Response.Status;
 
 import patinette.entity.Location;
 import patinette.entity.Trottinette;
+import patinette.entity.User;
 import patinette.service.TrottinetteService;
 
 @Path("/trottinette")
@@ -46,6 +47,19 @@ public class TrottinetteEndpoint {
 	public Response endLocation(Location location) {
     	location = trottinetteService.endLocation(location);
 		return Response.status(Status.ACCEPTED).entity(location).build();
+    }
+    
+    @Path("/runningLocation")
+    @POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+    public Response getRunningLocation(User user) {
+    	Location location = trottinetteService.getRunningLocationByUser(user);
+    	if (location == null) {
+    		return Response.noContent().build();
+    	} else {
+    		return Response.ok(location).build();
+    	}
     }
 
 }

@@ -6,6 +6,7 @@ import javax.ejb.Local;
 
 import patinette.entity.Location;
 import patinette.entity.Trottinette;
+import patinette.entity.User;
 
 @Local
 public interface TrottinetteService {
@@ -20,5 +21,7 @@ public interface TrottinetteService {
 	 * @return le prix total
 	 */
 	Location endLocation(Location location);
+
+	Location getRunningLocationByUser(User user);
 
 }

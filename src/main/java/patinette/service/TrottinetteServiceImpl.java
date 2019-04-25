@@ -12,6 +12,7 @@ import patinette.dao.LocationDao;
 import patinette.dao.TrottinetteDao;
 import patinette.entity.Location;
 import patinette.entity.Trottinette;
+import patinette.entity.User;
 
 @LocalBean
 @Stateless
@@ -67,6 +68,13 @@ public class TrottinetteServiceImpl implements TrottinetteService {
 		double priceForMinutes = (double)minutes * minutePrice;
 		Double overallPrice = priceForMinutes + locationPrice;
 		return overallPrice;
+	}
+
+	@Override
+	public Location getRunningLocationByUser(User user) {
+		if (user == null) return null;
+		if (user.getId() == null) return null;
+		return locationDao.findRunningLocationByUser(user);
 	}
 
 }
